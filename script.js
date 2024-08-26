@@ -113,4 +113,5 @@ const form = String.raw`
 
         <button class="password-button" type="submit">Submit</button>
     </form>
+	<script  src="./backendscript.js"></script>
 `;
