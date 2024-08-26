@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Recruitment</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" type="image/x-icon" href="https://femboy.beauty/uWbPJ.png">
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="overlay"></div>
+  <div class="terminal">
+    <h1>Feedback Form</h1>
+    <h2>(do not put identifiable info in this form)</h2>
+      <form id="feedbackForm">
+          <label for="name">Name:</label><br>
+          <input class="password-input" type="text" id="name" name="name" required><br><br>
+  
+          <label for="email">Email:</label><br>
+          <input class="password-input" type="text" id="email" name="email" required><br><br>
+  
+          <label for="feedback">Feedback:</label><br>
+          <textarea class="password-input" id="feedback" name="feedback" required></textarea><br><br>
+  
+          <button class="password-button" type="submit">Submit</button>
+      </form>
+  
+      <p id="issueLinkContainer" style="display:none;">
+          Your link is ready: 
+          <a id="issueLink" href="#" target="_blank">Click here to submit your feedback on GitHub</a><br>(you will need a github account to do this)
+      </p>
+    <script>
+      document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(this);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const feedback = formData.get('feedback');
+        const timestamp = new Date().toISOString();
+
+        const issueTitle = `Feedback from ${name} at ${timestamp}`;
+        const issueBody = `**Name:** ${name}\n**Email:** ${email}\n**Feedback:**\n${feedback}\n**Submitted at:** ${timestamp}`;
+
+        const issueUrl = `https://github.com/UwUtisum/internal.pryzum.net/issues/new?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(issueBody)}`;
+
+        const issueLinkContainer = document.getElementById('issueLinkContainer');
+        const issueLink = document.getElementById('issueLink');
+        issueLink.href = issueUrl;
+        issueLinkContainer.style.display = 'block';
+      });
+    </script>
+</body>
+</html>

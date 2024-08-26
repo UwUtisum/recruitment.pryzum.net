@@ -94,24 +94,5 @@ const DrawCommands = async commands => {
 	await DrawCommands('root@recruitment.pryzum.net:~ KEY=3db7ca618243da1ba3bc76ab14bcf07b node samurai.js');
 	await DrawLines(samurai);
 	await Delay(2000);
-	ResetTerminal();
-	await DrawLines(form);
+	window.location.href = './form';
 })();
-
-const form = String.raw`
-<h1>Feedback Form</h1>
-	<h2>(do not put identifiable info in this form)</h2>
-    <form id="feedbackForm">
-        <label for="name">Name/Alias: (make sure pryzum is aware of ur alias after you submit this form)</label><br>
-        <input type="text" id="name" class="password-input" name="name" required><br><br>
-
-        <label for="email">Email: (Example: XYZ@discord.com)</label><br>
-        <input type="email" class="password-input" id="email" name="email" required><br><br>
-
-        <label for="feedback">Tell us About Your Self</label><br>
-        <textarea id="feedback" class="password-input" name="feedback" required></textarea><br><br>
-
-        <button class="password-button" type="submit">Submit</button>
-    </form>
-	<script  src="./backendscript.js"></script>
-`;
