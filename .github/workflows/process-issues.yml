@@ -12,6 +12,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Create responses directory if it doesn't exist
+      run: |
+        mkdir -p responses
+
     - name: Extract and save feedback
       run: |
         ISSUE_TITLE="${{ github.event.issue.title }}"

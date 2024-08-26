@@ -9,5 +9,5 @@ this project was made by Github user @UwUtisum <br>
 link to my Nopixel Wiki page: <br>
 https://nopixel.fandom.com/wiki/Lucy_Webb
 
-## if you do not want to see any pos meta info do not look in this repo
+## if you do not want to see any pos meta info do not look in this repo.
 
