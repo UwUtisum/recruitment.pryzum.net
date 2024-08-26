@@ -30,6 +30,22 @@ const samurai = String.raw`
                   ░ ░     ░                            
 `;
 
+document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+	event.preventDefault();
+
+	const formData = new FormData(this);
+	const name = formData.get('name');
+	const email = formData.get('email');
+	const feedback = formData.get('feedback');
+	const timestamp = new Date().toISOString();
+
+	const issueTitle = `Feedback from ${name} at ${timestamp}`;
+	const issueBody = `**Name:** ${name}\n**Email:** ${email}\n**Feedback:**\n${feedback}\n**Submitted at:** ${timestamp}`;
+
+	// Redirect to GitHub issues page to submit issue
+	window.open(`https://github.com/UwUtisum/recruitment.pryzum.net/issues/new?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(issueBody)}`, '_blank');
+});
+
 let blink = document.querySelector('.blink');
 const code = document.querySelector('.code');
 
@@ -93,4 +109,24 @@ const DrawCommands = async commands => {
 	ResetTerminal();
 	await DrawCommands('root@recruitment.pryzum.net:~ KEY=3db7ca618243da1ba3bc76ab14bcf07b node samurai.js');
 	await DrawLines(samurai);
+	await Delay(2000);
+	ResetTerminal();
+	await DrawLines(form);
 })();
+
+const form = String.raw`
+<h1>Feedback Form</h1>
+	<h2>(do not put identifiable info in this form)</h2>
+    <form id="feedbackForm">
+        <label for="name">Name/Alias: (make sure pryzum is aware of ur alias after you submit this form)</label><br>
+        <input type="text" id="name" class="password-input" name="name" required><br><br>
+
+        <label for="email">Email: (Example: XYZ@discord.com)</label><br>
+        <input type="email" class="password-input" id="email" name="email" required><br><br>
+
+        <label for="feedback">Tell us About Your Self</label><br>
+        <textarea id="feedback" class="password-input" name="feedback" required></textarea><br><br>
+
+        <button class="password-button" type="submit">Submit</button>
+    </form>
+`;
