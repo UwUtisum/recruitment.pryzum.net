@@ -90,7 +90,6 @@
       }
     }
 
-
     // Start the code
     (async()=> {
       await DrawCommands("/:~ ssh root@recruitment.pryzum.net -p 2000");
@@ -99,13 +98,13 @@
       await Delay(5000);
       RenderString("\n");
       await DrawCommands(commands);
-      RenderString('\nbeep.js    samurai.js\n\n');
-      await DrawCommands('root@recruitment.pryzum.net/HAX:~ node beep.js');
+      RenderString('\nbeep.js    server.js\n\n');
+      await DrawCommands('root@recruitment.pryzum.net/HAX:~ node run.js');
       await DrawLines( beep );
       await TypeString("\n\nSeems you're not among the sheep after all. Wanna play a game? Watch for the beeps.");
       await Delay(3000);
       ResetTerminal();
-      await DrawCommands('root@recruitment.pryzum.net:~ KEY=3db7ca618243da1ba3bc76ab14bcf07b node samurai.js');
+      await DrawCommands('root@recruitment.pryzum.net:~ KEY=3db7ca618243da1ba3bc76ab14bcf07b node server.js');
       await DrawLines(samurai);
       await Delay(2000);
       window.location.href = './form';
