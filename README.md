@@ -11,3 +11,4 @@ https://nopixel.fandom.com/wiki/Lucy_Webb
 
 ## if you do not want to see any pos meta info do not look in this repo.
 
+## This SRC is to be concidered OOC knowlage due to github-pages limitations requireing me to host this SRC public (i dont want the SRC being public but i literaly cant do shit lol)
